@@ -7,11 +7,10 @@
   "author": "",
   "scripts": {
     "prebuild": "rimraf dist",
-    "pre-commit": "lint-staged",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "postinstall": "husky install",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "prepare": "husky install",
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
     "start:dev": "nest start --watch",
