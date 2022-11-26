@@ -24,7 +24,7 @@ export class UserService {
   ];
 
   create(createUserInput: CreateUserInput) {
-    console.log(createUserInput);
+    createUserInputs;
     return 'This action adds a new user';
   }
 
