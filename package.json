@@ -24,8 +24,9 @@
   "lint-staged": {
     "package.json": "sort-package-json",
     "*.ts": [
-      "yarn run lint",
-      "yarn run format",
+      "yarn lint",
+      "yarn format",
+      "lint-staged-tsc",
       "git add ."
     ]
   },
@@ -96,6 +97,7 @@
     "husky": "^8.0.0",
     "jest": "28.1.3",
     "lint-staged": "^13.0.4",
+    "lint-staged-tsc": "^0.2.1",
     "prettier": "^2.3.2",
     "sort-package-json": "^2.1.0",
     "source-map-support": "^0.5.20",

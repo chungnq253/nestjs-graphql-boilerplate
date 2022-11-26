@@ -24,7 +24,6 @@ export class UserService {
   ];
 
   create(createUserInput: CreateUserInput) {
-    createUserInputs;
     return 'This action adds a new user';
   }
 

@@ -4231,6 +4231,11 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
+lint-staged-tsc@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/lint-staged-tsc/-/lint-staged-tsc-0.2.1.tgz#4108e9ca79cf350e819262acef3b7a0faf9e0526"
+  integrity sha512-gS2oglFHrMOTv+0rsgg2DGCkylcCUuEpNDv/Cn7gphXcpjSP6D1JM5/QQfp8nO9/OtEydXa7Kh5YFKuqcBo5EQ==
+
 lint-staged@^13.0.4:
   version "13.0.4"
   resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-13.0.4.tgz#c4b4391280c35165b805ad43304ba01f733067a0"
