@@ -24,9 +24,9 @@
   "lint-staged": {
     "package.json": "sort-package-json",
     "*.ts": [
+      "lint-staged-tsc",
       "yarn lint",
       "yarn format",
-      "lint-staged-tsc",
       "git add ."
     ]
   },
