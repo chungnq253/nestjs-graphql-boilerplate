@@ -1,0 +1,43 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input AuthInput {
+  email: String!
+  password: String!
+}
+
+type AuthPayload {
+  error: String
+  token: String
+  user: User
+}
+
+input CreateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  login(input: AuthInput!): AuthPayload!
+  removeUser(id: Int!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Query {
+  user(email: String!): User!
+  users: [User!]!
+}
+
+input UpdateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+type User {
+  email: String!
+  id: Int!
+  password: String
+}
