@@ -19,7 +19,7 @@ import { ComplexityPlugin } from './common/ComplexityPlugin';
 
 import { UserModule } from './user/user.module';
 import { HealthModule } from './health/health.module';
-import { AuthModule } from './auth/auth.module';
+// import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -75,7 +75,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     UserModule,
     HealthModule,
-    AuthModule,
+    // AuthModule,
   ],
   controllers: [AppController],
   providers: [

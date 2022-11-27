@@ -1,15 +1,16 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 import { Exclude } from 'class-transformer';
+import { Entity, Index } from 'typeorm';
+import { BaseEntity } from '../../common/entity/base';
 
 @ObjectType()
-export class User {
-  @Field(() => Int)
-  id: number;
-
+@Entity()
+@Index(['email'], { unique: true })
+export class User extends BaseEntity {
   @Field(() => String)
   email: string;
 
-  @Exclude()
+  @Exclude({ toPlainOnly: true })
   @Field({ nullable: true })
   password?: string;
 }
