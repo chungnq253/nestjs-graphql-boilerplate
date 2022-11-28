@@ -1,15 +1,10 @@
-import { UpdateManyResponse, Filter } from '@nestjs-query/core';
-import {
-  CRUDResolver,
-  FilterType,
-  UpdateManyResponseType,
-} from '@nestjs-query/query-graphql';
-import { Resolver, Args, Mutation, ID, Query } from '@nestjs/graphql';
+import { Resolver } from '@nestjs/graphql';
 import { BaseResolver } from '../common/graphql/BaseResolver';
-import { UserDTO } from './dto/user.dto';
+import { User } from './entities/user.entity';
 import { UserService } from './user.service';
 
-export class UserResolver extends BaseResolver(UserDTO) {
+@Resolver(() => User)
+export class UserResolver extends BaseResolver(User) {
   constructor(readonly service: UserService) {
     super(service);
   }

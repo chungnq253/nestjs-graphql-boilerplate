@@ -18,7 +18,10 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       clientID: configService.get<string>('auth.authGoogleClientId'),
       clientSecret: configService.get<string>('auth.authGoogleClientSecret'),
       callbackURL: configService.get<string>('auth.authGoogleCallbackUrl'),
-      scope: ['email', 'profile'],
+      scope: ['openid', 'email', 'profile'],
+      prompt: 'consent',
+      accessType: 'offline',
+      includeGrantedScopes: true,
     });
   }
 

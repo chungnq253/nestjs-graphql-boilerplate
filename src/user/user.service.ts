@@ -9,4 +9,8 @@ export class UserService extends TypeOrmQueryService<User> {
   constructor(@InjectRepository(User) repo: Repository<User>) {
     super(repo, { useSoftDelete: true });
   }
+
+  async findByEmail(email: string): Promise<User> {
+    return this.repo.findOne({ where: { email } });
+  }
 }

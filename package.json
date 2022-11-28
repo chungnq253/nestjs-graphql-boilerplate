@@ -12,6 +12,9 @@
     "postinstall": "husky install",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "lint-staged": "lint-staged --allow-empty",
+    "migrate:create": "ts-node ./database.ts && cd ./src/migrations && typeorm migration:create",
+    "migrate:down": "ts-node ./database.ts && typeorm migration:revert",
+    "migrate:up": "ts-node ./database.ts && typeorm migration:run",
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
     "start:dev": "nest start --watch",
@@ -64,9 +67,11 @@
     "@nestjs/throttler": "^3.1.0",
     "@nestjs/typeorm": "^9.0.1",
     "apollo-server-express": "^3.11.1",
+    "argon2": "^0.30.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "dataloader": "^2.1.0",
+    "google-auth-library": "^8.7.0",
     "graphql": "^16.6.0",
     "graphql-query-complexity": "^0.12.0",
     "graphql-subscriptions": "^2.0.0",
@@ -108,5 +113,8 @@
     "ts-node": "^10.0.0",
     "tsconfig-paths": "4.1.0",
     "typescript": "^4.7.4"
+  },
+  "engines": {
+    "node": ">=v16.17.1"
   }
 }

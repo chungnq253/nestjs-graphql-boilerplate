@@ -19,15 +19,23 @@ import { ComplexityPlugin } from './common/ComplexityPlugin';
 
 import { UserModule } from './user/user.module';
 import { HealthModule } from './health/health.module';
-// import { AuthModule } from './auth/auth.module';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import databaseConfig from './config/database.config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [appConfig, authConfig],
+      load: [appConfig, authConfig, databaseConfig],
       isGlobal: true,
       cache: true,
       expandVariables: true,
+    }),
+    TypeOrmModule.forRootAsync({
+      useFactory: (configService: ConfigService) =>
+        configService.get<TypeOrmModuleOptions>('database'),
+      imports: [ConfigModule],
+      inject: [ConfigService],
     }),
     GraphQLModule.forRootAsync({
       driver: ApolloDriver,
@@ -73,9 +81,9 @@ import { HealthModule } from './health/health.module';
         limit: config.get<number>('app.throttleLimit'),
       }),
     }),
-    UserModule,
     HealthModule,
-    // AuthModule,
+    AuthModule,
+    // UserModule,
   ],
   controllers: [AppController],
   providers: [

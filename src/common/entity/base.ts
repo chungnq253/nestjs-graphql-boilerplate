@@ -5,23 +5,26 @@ import {
   DeleteDateColumn,
 } from 'typeorm';
 import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
-import { IDField } from '@nestjs-query/query-graphql';
+import { FilterableField, IDField } from '@nestjs-query/query-graphql';
+import { Exclude } from 'class-transformer';
 
-@ObjectType()
+@ObjectType({ isAbstract: true })
 export abstract class BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   @IDField(() => ID)
   readonly id!: string;
 
-  @Field()
+  @Field(() => GraphQLISODateTime)
+  @FilterableField()
   @CreateDateColumn()
   readonly createdAt: Date;
 
   @Field(() => GraphQLISODateTime)
+  @FilterableField()
   @UpdateDateColumn()
   readonly updatedAt: Date;
 
-  @Field(() => GraphQLISODateTime)
   @DeleteDateColumn()
+  @Exclude({ toPlainOnly: true })
   deletedAt?: Date;
 }
