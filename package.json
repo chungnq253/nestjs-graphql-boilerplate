@@ -8,6 +8,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
+    "deploy": "yarn install --frozen-lockfile && yarn run build && yarn run start:prod",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "postinstall": "husky install",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
